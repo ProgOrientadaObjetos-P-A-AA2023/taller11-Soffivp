@@ -5,6 +5,15 @@
  */
 package paquete01;
 
+import java.util.ArrayList;
+import java.util.List;
+import paquete02.Cuenta;
+import paquete02.Menu;
+import paquete02.MenuCarta;
+import paquete02.MenuDia;
+import paquete02.MenuEconomico;
+import paquete02.MenuNinos;
+
 /**
  *
  * @author reroes
@@ -16,9 +25,35 @@ public class Ejecutor01 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ArrayList<Menu> lista = new ArrayList<>();
+
+        MenuNinos ninos = new MenuNinos("Niños 01", 2, 1, 1.5);
+        ninos.calcularTotal();
+        lista.add(ninos);
+
+        MenuNinos ninos2 = new MenuNinos("Niños 02", 3, 1, 1.5);
+        ninos2.calcularTotal();
+        lista.add(ninos2);
+
+        MenuEconomico economico = new MenuEconomico("Econo 001", 4, 25);
+        economico.calcularTotal();
+        lista.add(economico);
+
+        MenuDia dia = new MenuDia("Dia 001", 5, 1, 1);
+        dia.calcularTotal();
+        lista.add(dia);
+
+        MenuCarta carta = new MenuCarta("Carta 001", 6, 1.5, 2, 10);
+        carta.calcularTotal();
+        lista.add(carta);
+
+        Cuenta cuenta = new Cuenta("René Elizalde", lista, 10);
+        cuenta.establecerSubtotal();
+        cuenta.establecerTotal();
+
+        System.out.println(cuenta);
     }
-    
-    
+
 }
 // lo que debe presentar
 /*
@@ -63,4 +98,4 @@ Subtotal: 30,1
 IVA: 10,0%
 Total a pagar: 33,110
 
-*/
+ */
